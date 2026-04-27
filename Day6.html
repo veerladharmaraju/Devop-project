@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6 - Git Bash to EC2 Connection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #38bdf8;
+        }
+        code {
+            background-color: #1e293b;
+            padding: 5px;
+            display: block;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+        .highlight {
+            color: #22c55e;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 Day 6: Connecting Git Bash to EC2 Instance</h1>
+
+```
+<h2>📌 Objective</h2>
+<p>
+    Successfully connected local system to AWS EC2 Ubuntu instance using SSH via Git Bash
+    and performed basic server setup.
+</p>
+
+<h2>🛠️ Steps Performed</h2>
+
+<h3>1. EC2 Instance Setup</h3>
+<ul>
+    <li>Launched Ubuntu EC2 instance</li>
+    <li>Downloaded <span class="highlight">.pem key file</span></li>
+    <li>Enabled SSH (Port 22)</li>
+</ul>
+
+<h3>2. Opened Git Bash</h3>
+<p>Used Git Bash terminal to connect with EC2 instance.</p>
+
+<h3>3. Navigated to Key File Location</h3>
+<code>cd ~/Downloads</code>
+
+<h3>4. Changed File Permission</h3>
+<code>chmod 400 day6-key.pem</code>
+
+<h3>5. Connected to EC2 via SSH</h3>
+<code>ssh -i day6-key.pem ubuntu@YOUR-PUBLIC-IP</code>
+
+<h3>6. First-Time Authentication</h3>
+<p>Accepted connection prompt by typing:</p>
+<code>yes</code>
+
+<h3>7. Successfully Logged into EC2</h3>
+<p>Accessed Ubuntu terminal remotely.</p>
+
+<h3>8. Installed Packages</h3>
+<code>sudo apt update</code>
+<code>sudo apt install nginx -y</code>
+
+<h3>9. Checked Nginx Status</h3>
+<code>systemctl status nginx</code>
+
+<h3>10. Verified Web Server</h3>
+<p>Accessed EC2 public IP in browser to confirm Nginx running.</p>
+
+<h2>📚 Key Learnings</h2>
+<ul>
+    <li>SSH connection using PEM key</li>
+    <li>Linux file permissions</li>
+    <li>Remote server access</li>
+    <li>Basic web server setup (Nginx)</li>
+</ul>
+
+<h2>🎯 Outcome</h2>
+<p>
+    Successfully established secure connection between local machine and EC2 instance
+    and deployed a basic web server.
+</p>
+
+<h2>🔗 Next Step</h2>
+<p>
+    Proceed to <strong>Day 7: GitHub + EC2 Deployment</strong> for live project hosting.
+</p>
+```
+
+</div>
+
+</body>
+</html>
+
