@@ -1,108 +1,194 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 6 - Git Bash to EC2 Connection</title>
+    <title>Day 7 - DevOps Deployment</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #0f172a;
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: #0f172a;
             color: #e2e8f0;
+        }
+
+        header {
+            background: linear-gradient(90deg, #2563eb, #1e3a8a);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
             padding: 20px;
         }
-        h1, h2 {
-            color: #38bdf8;
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            transition: 0.3s;
         }
-        code {
-            background-color: #1e293b;
-            padding: 5px;
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #60a5fa;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        .pipeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .step span {
             display: block;
-            margin: 10px 0;
-            border-radius: 5px;
+            font-size: 30px;
         }
-        .container {
-            max-width: 900px;
-            margin: auto;
+
+        .arrow {
+            font-size: 24px;
+            color: #94a3b8;
         }
-        .highlight {
-            color: #22c55e;
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: #94a3b8;
         }
+
+        .badge {
+            display: inline-block;
+            background: #22c55e;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
     </style>
 </head>
+
 <body>
 
+<header>
+    <h1>🚀 DevOps Day 7 Deployment</h1>
+    <p>GitHub → EC2 → Apache → Live Website</p>
+</header>
+
 <div class="container">
-    <h1>🚀 Day 6: Connecting Git Bash to EC2 Instance</h1>
 
-```
-<h2>📌 Objective</h2>
-<p>
-    Successfully connected local system to AWS EC2 Ubuntu instance using SSH via Git Bash
-    and performed basic server setup.
-</p>
+    <div class="card">
+        <h2>📌 Project Overview</h2>
+        <p>
+            This project demonstrates a complete deployment pipeline using GitHub,
+            AWS EC2, Apache Web Server, and Git Bash. The goal is to host a live web application
+            accessible through a browser.
+        </p>
+        <div class="badge">LIVE DEPLOYED</div>
+    </div>
 
-<h2>🛠️ Steps Performed</h2>
+    <div class="card">
+        <h2>⚙️ Technologies Used</h2>
+        <ul>
+            <li>Git & GitHub (Version Control)</li>
+            <li>AWS EC2 (Cloud Server)</li>
+            <li>Apache Web Server</li>
+            <li>Linux (Ubuntu)</li>
+            <li>Git Bash (SSH Access)</li>
+        </ul>
+    </div>
 
-<h3>1. EC2 Instance Setup</h3>
-<ul>
-    <li>Launched Ubuntu EC2 instance</li>
-    <li>Downloaded <span class="highlight">.pem key file</span></li>
-    <li>Enabled SSH (Port 22)</li>
-</ul>
+    <div class="card">
+        <h2>🔄 Deployment Pipeline</h2>
 
-<h3>2. Opened Git Bash</h3>
-<p>Used Git Bash terminal to connect with EC2 instance.</p>
+        <div class="pipeline">
+            <div class="step">
+                <span>📂</span>
+                GitHub Repo
+            </div>
 
-<h3>3. Navigated to Key File Location</h3>
-<code>cd ~/Downloads</code>
+            <div class="arrow">➡️</div>
 
-<h3>4. Changed File Permission</h3>
-<code>chmod 400 day6-key.pem</code>
+            <div class="step">
+                <span>💻</span>
+                EC2 Instance
+            </div>
 
-<h3>5. Connected to EC2 via SSH</h3>
-<code>ssh -i day6-key.pem ubuntu@YOUR-PUBLIC-IP</code>
+            <div class="arrow">➡️</div>
 
-<h3>6. First-Time Authentication</h3>
-<p>Accepted connection prompt by typing:</p>
-<code>yes</code>
+            <div class="step">
+                <span>🌐</span>
+                Apache Server
+            </div>
 
-<h3>7. Successfully Logged into EC2</h3>
-<p>Accessed Ubuntu terminal remotely.</p>
+            <div class="arrow">➡️</div>
 
-<h3>8. Installed Packages</h3>
-<code>sudo apt update</code>
-<code>sudo apt install nginx -y</code>
+            <div class="step">
+                <span>🚀</span>
+                Browser Output
+            </div>
+        </div>
+    </div>
 
-<h3>9. Checked Nginx Status</h3>
-<code>systemctl status nginx</code>
+    <div class="card">
+        <h2>🛠️ Steps Performed</h2>
+        <ul>
+            <li>Created EC2 Instance in AWS</li>
+            <li>Connected via SSH using Git Bash</li>
+            <li>Cloned GitHub Repository</li>
+            <li>Installed Apache Server</li>
+            <li>Deployed project to /var/www/html</li>
+            <li>Configured Security Groups (Port 80)</li>
+            <li>Accessed project via Public IP</li>
+        </ul>
+    </div>
 
-<h3>10. Verified Web Server</h3>
-<p>Accessed EC2 public IP in browser to confirm Nginx running.</p>
-
-<h2>📚 Key Learnings</h2>
-<ul>
-    <li>SSH connection using PEM key</li>
-    <li>Linux file permissions</li>
-    <li>Remote server access</li>
-    <li>Basic web server setup (Nginx)</li>
-</ul>
-
-<h2>🎯 Outcome</h2>
-<p>
-    Successfully established secure connection between local machine and EC2 instance
-    and deployed a basic web server.
-</p>
-
-<h2>🔗 Next Step</h2>
-<p>
-    Proceed to <strong>Day 7: GitHub + EC2 Deployment</strong> for live project hosting.
-</p>
-```
+    <div class="card">
+        <h2>🌍 Live Access</h2>
+        <p>
+            Open your deployed project using:
+        </p>
+        <p><strong>http://your-ec2-public-ip</strong></p>
+    </div>
 
 </div>
 
+<footer>
+    © 2026 DevOps Project | Day 7 Deployment Completed
+</footer>
+
 </body>
 </html>
-
